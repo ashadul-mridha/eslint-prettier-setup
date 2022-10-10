@@ -1,70 +1,185 @@
-# Getting Started with Create React App
+<!-- TABLE OF CONTENTS -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [How to run](#how-to-run)
+- [Editor Setup](#editor-setup)
+  - [Plugins](#plugins)
+  - [Settings](#settings)
+  - [Add .env](#Add.env)
+  - [Set Line Breaks](#set-line-breaks)
+- [Linting Setup](#linting-setup)
+  - [Install Dev Dependencies](#install-dev-dependencies)
+  - [Create Linting Configuration file manually](#create-linting-configuration-file-manually)
+- [Contact](#contact)
 
-In the project directory, you can run:
+<!-- HOW TO RUN -->
 
-### `npm start`
+## How to run
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Please follow the below instructions to run this project in your computer:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone this repository
+   ```sh
+   git clone from git
+   ```
+2. install dependancy
+   ```sh
+   yarn install
+   ```
+3. Run
+   ```sh
+   yarn
+   ```
+4. Your app should be available in http://localhost:3000
 
-### `npm test`
+<!-- Editor Setup -->
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Editor Setup
 
-### `npm run build`
+You can use any editor but as I personally prefer VS Code. I will give some instructions about how I prefer VS code to be setup for React applications.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Plugins
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You need to install the below plugins:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ESLint by Dirk Baeumer
+- Prettier - Code formatter by Prettier
+- Dracula Official Theme (optional)
 
-### `npm run eject`
+### Settings
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Follow the below settings for VS Code -
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Create a new folder called ".vscode" inside the project root folder
+2. Create a new file called "settings.json" inside that folder.
+3. Paste the below json in the newly created settings.json file and save the file.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```json
+{
+  // config related to code formatting
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+  "javascript.validate.enable": false, //disable all built-in syntax checking
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true,
+    "source.organizeImports": true
+  },
+  "eslint.alwaysShowStatus": true,
+  // emmet
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
+}
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+If you followed all previous steps, the theme should change and your editor should be ready.
+### Add.env
 
-## Learn More
+Follow the below settings for VS Code -
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Create a new file called ".env" inside the project root folder
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```json
+SKIP_PREFLIGHT_CHECK=true
+DISABLE_ESLINT_PLUGIN=true
+```
 
-### Code Splitting
+If you followed all previous steps, the theme should change and your editor should be ready.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Set Line Breaks
 
-### Analyzing the Bundle Size
+Make sure in your VS Code Editor, "LF" is selected as line feed instead of CRLF (Carriage return and line feed). To do that, just click LF/CRLF in bottom right corner of editor, click it and change it to "LF". If you dont do that, you will get errors in my setup.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img src="public/line-feed.jpg" alt="Line Feed" width="700">
 
-### Making a Progressive Web App
+## Linting Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+In order to lint and format your React project automatically according to popular airbnb style guide, I recommend you to follow the instructions below.
 
-### Advanced Configuration
+### Install Dev Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```sh
+yarn add -D prettier
+yarn add -D babel-eslint
+npx install-peerdeps --dev eslint-config-airbnb
+yarn add -D eslint-config-prettier eslint-plugin-prettier
+```
 
-### Deployment
+or You can also add a new script in the scripts section like below to install everything with a single command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```json
+scripts: {
+    "lint": "yarn add -D prettier && npx install-peerdeps --dev eslint-config-airbnb && yarn add -D eslint-config-prettier eslint-plugin-prettier"
+}
+```
 
-### `npm run build` fails to minify
+and then simply run the below command in the terminal -
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```sh
+yarn lint #or 'npm run lint'
+```
+
+### Create Linting Configuration file manually
+
+Create a `.eslintrc` file in the project root and enter the below contents:
+
+```json
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "eslint:recommended",
+    "prettier",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "react/react-in-jsx-scope": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "no-console": 0,
+    "react/state-in-constructor": 0,
+    "indent": 0,
+    "linebreak-style": 0,
+    "react/prop-types": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 100,
+        "tabWidth": 4,
+        "semi": true,
+        "endOfLine": "auto"
+      }
+    ],
+    "import/no-unresolved": [2, { "caseSensitive": false }]
+  },
+  "plugins": ["prettier", "react", "react-hooks"]
+}
+```
