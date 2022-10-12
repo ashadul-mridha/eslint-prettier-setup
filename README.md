@@ -111,7 +111,6 @@ In order to lint and format your React project automatically according to popula
 
 ```sh
 yarn add -D prettier
-yarn add -D babel-eslint
 npx install-peerdeps --dev eslint-config-airbnb
 yarn add -D eslint-config-prettier eslint-plugin-prettier
 ```
