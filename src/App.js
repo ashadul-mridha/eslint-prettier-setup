@@ -1,11 +1,17 @@
-import Accordian from './component/Accordian';
-import Button from './component/button/Button';
+
+import ClickedCounter from './component/clickedCounter/ClickedCounter';
+import Clock from './component/Clock/Clock';
+import HoverCounter from './component/hoverCounter/HoverCounter';
+
 
 function App() {
     return (
         <div className="App">
-            <Button />
-            <Accordian />
+            {/* <Button />
+            <Accordian /> */}
+            {/* <Clock local="bn-BD" /> */}
+            <ClickedCounter />
+            <HoverCounter />
         </div>
     );
 }

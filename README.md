@@ -111,6 +111,7 @@ In order to lint and format your React project automatically according to popula
 
 ```sh
 yarn add -D prettier
+yarn add -D @babel/eslint-parser
 npx install-peerdeps --dev eslint-config-airbnb
 yarn add -D eslint-config-prettier eslint-plugin-prettier
 ```
@@ -119,7 +120,7 @@ or You can also add a new script in the scripts section like below to install ev
 
 ```json
 scripts: {
-    "lint": "yarn add -D prettier && npx install-peerdeps --dev eslint-config-airbnb && yarn add -D eslint-config-prettier eslint-plugin-prettier"
+    "lint": "yarn add -D prettier  && yarn add -D @babel/eslint-parser && npx install-peerdeps --dev eslint-config-airbnb && yarn add -D eslint-config-prettier eslint-plugin-prettier"
 }
 ```
 
@@ -142,8 +143,10 @@ Create a `.eslintrc` file in the project root and enter the below contents:
     "prettier",
     "plugin:jsx-a11y/recommended"
   ],
+  "requireConfigFile": false,
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 8
   },
   "env": {
     "browser": true,
