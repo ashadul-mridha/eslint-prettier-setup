@@ -1,16 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class ShowState extends Component {
+function ShowState({ title, counter}) {
 
-    constructor(props){
-        super(props)
-    }
+    console.log('render State Compo' , title);
 
-  render() {
-    return (
-      <>
-        <h5>count : {this.props.counter}</h5>
-      </>
-    )
-  }
+  return (
+    <>
+      <h5> {title} of count : {counter}</h5>
+    </>
+  )
 }
+
+export default React.memo(ShowState)

@@ -1,4 +1,6 @@
 import React from 'react'
+import { useCallback } from 'react';
+import { useMemo } from 'react';
 import { useState } from 'react'
 import Button from './Button';
 import ShowState from './ShowState';
@@ -9,21 +11,36 @@ export default function UseCallbackFn() {
     const [countOne , setCountOne] = useState(0);
     const [countFive , setCountFive] = useState(0);
 
-    const handleCouterOne = () => {
+    const handleCouterOne = useCallback(() => {
         setCountOne( (prevState) => prevState + 1)
-    }
+    }, [])
 
-    const handleCouterFive = () => {
+    const handleCouterFive = useCallback(() => {
         setCountFive( (prevState) => prevState + 5)
-    }
+    }, [])
+
+    const isEvenOrOdd = useMemo(() => {
+
+      let i = 0;
+      while(i < 10000000) i +=1;
+       return countOne % 2 === 0;
+
+    }, [countOne])
+
 
   return (
     <>
         <Title />
-        <ShowState counter={countOne} />
-        <Button handleClick={handleCouterOne} />
-        <ShowState counter={countFive} />
-        <Button handleClick={handleCouterFive} />
+        <ShowState counter={countOne} title="one" />
+        <span>{isEvenOrOdd ? 'Even' : 'Odd'}</span>
+        <br />
+        <Button handleClick={handleCouterOne}>
+          Increment By One
+        </Button>
+        <ShowState counter={countFive} title="five"  />
+        <Button handleClick={handleCouterFive}>
+          Increment By Five
+        </Button>
     </>
   )
 }

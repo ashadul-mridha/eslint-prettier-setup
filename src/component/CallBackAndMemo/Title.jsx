@@ -1,10 +1,13 @@
-import { Component } from "react";
+import React from 'react'
 
+function Title() {
 
-export default class Title extends Component {
-    render(){
-        return(
-            <h2>Title</h2>
-        )
-    }
+    console.log('render title');
+
+  return (
+    <>
+        <h5>React Memorize </h5>
+    </>
+  )
 }
+export default React.memo(Title)

@@ -1,17 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Button extends Component {
+function Button({handleClick , children}) {
 
-    constructor(props){
-        super(props)
-    }
+    console.log('render button', children);
 
-  render() {
-    return (
-      <>
-        <button onClick={this.props.handleClick}>Click Me</button>
-      </>
-    )
-  }
-
+  return (
+    <>
+      <button onClick={handleClick}>{children}</button>
+    </>
+  )
 }
+
+export default React.memo(Button)
