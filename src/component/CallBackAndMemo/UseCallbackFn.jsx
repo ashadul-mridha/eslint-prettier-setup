@@ -11,14 +11,17 @@ export default function UseCallbackFn() {
     const [countOne , setCountOne] = useState(0);
     const [countFive , setCountFive] = useState(0);
 
+    // use callback return memorize fn 
     const handleCouterOne = useCallback(() => {
         setCountOne( (prevState) => prevState + 1)
     }, [])
 
+    // use callback return memorize fn 
     const handleCouterFive = useCallback(() => {
         setCountFive( (prevState) => prevState + 5)
     }, [])
 
+    // use Memo return memorize fn Value
     const isEvenOrOdd = useMemo(() => {
 
       let i = 0;
