@@ -8,6 +8,7 @@ import HoverClassCounter from './component/hoverCounter/HoverClassCounter';
 import HoverCounter from './component/hoverCounter/HoverCounter';
 import RenderPropsCounter from './component/RenderPropsCounter';
 import { Button } from './component/styleComponent/Button.styles';
+import NFTCard from './component/nftCardDesign/NFTCard';
 
 const TomatoButton = styled(Button)`
   color: tomato;
@@ -35,9 +36,11 @@ function App() {
             {/* <RenderPropsCounter render={ (counter , increment) => <ClickClassCounter counter={counter} increment={increment} />} />
             <RenderPropsCounter render={ (counter , increment) => <HoverClassCounter counter={counter} increment={increment} />} /> */}
             {/* <UseCallbackFn /> */}
-            <Button>Normal</Button>
+            {/* <Button>Normal</Button>
             <Button secondary>Seconday Button</Button>
-            <TomatoButton>Tomato Button</TomatoButton>
+            <TomatoButton>Tomato Button</TomatoButton> */}
+
+            <NFTCard />
         </div>
     );
 }
