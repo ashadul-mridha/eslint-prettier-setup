@@ -1,5 +1,5 @@
 
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import UseCallbackFn from './component/CallBackAndMemo/UseCallbackFn';
 import ClickClassCounter from './component/clickedCounter/ClickClassCounter';
 import ClickedCounter from './component/clickedCounter/ClickedCounter';
@@ -9,6 +9,8 @@ import HoverCounter from './component/hoverCounter/HoverCounter';
 import RenderPropsCounter from './component/RenderPropsCounter';
 import { Button } from './component/styleComponent/Button.styles';
 import NFTCard from './component/nftCardDesign/NFTCard';
+import { GlobalStyle } from './component/styleComponent/Global.style';
+import { ThemeProvider } from 'styled-components';
 
 const TomatoButton = styled(Button)`
   color: tomato;
@@ -22,10 +24,23 @@ const TomatoButton = styled(Button)`
   }
 `
 
+const theme = {
+  dark : {
+    color: 'white',
+    background : 'black'
+    
+  },
+  light : {
+    color: 'black',
+    background : 'white'
+    
+  }
+}
+
 
 function App() {
     return (
-        <div className="App">
+        <ThemeProvider theme={theme}>
             {/* <Button />
             <Accordian /> */}
             {/* <Clock local="bn-BD" /> */}
@@ -41,7 +56,8 @@ function App() {
             <TomatoButton>Tomato Button</TomatoButton> */}
 
             <NFTCard />
-        </div>
+            <GlobalStyle />
+        </ThemeProvider>
     );
 }
 

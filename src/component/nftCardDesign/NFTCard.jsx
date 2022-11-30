@@ -1,8 +1,13 @@
 import React from 'react'
-import { Description, DisplayFlex, Image, Title, Wrapper } from '../styleComponent/Nftcard.styles';
+import { Description, DisplayFlex, Div, Image, SubTitle, Title, Wrapper } from '../styleComponent/Nftcard.styles';
 import topImg from '../../asstes/images/image-equilibrium.jpg'
+import { useTheme } from 'styled-components';
 
 function NFTCard() {
+
+    const theme = useTheme()
+
+    console.log('theme', theme);
   return (
     <>
         <Wrapper>
@@ -10,12 +15,12 @@ function NFTCard() {
             <Title>Equiribrium #3429</Title>
             <Description>our equiribrium collection promotes balance and clam </Description>
             <DisplayFlex direaction="row">
-                <div>
-                    <p>0.041ETH</p>
-                </div>
-                <div>
-                    <p>3 days left</p>
-                </div>
+                <Div>
+                    <SubTitle>0.041ETH</SubTitle>
+                </Div>
+                <Div>
+                    <SubTitle>3 days left</SubTitle>
+                </Div>
             </DisplayFlex>
         </Wrapper>
     </>
